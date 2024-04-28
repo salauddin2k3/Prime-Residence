@@ -12,6 +12,12 @@ const Navbar = () => {
 
     </>
 
+    const userLogin = <>
+
+        <NavLink to={'/login'}><span className="btn text-base font-medium text-[#1E1E1E]">Login</span></NavLink>
+
+    </>
+
 
     return (
         <div className="my-10">
@@ -34,7 +40,7 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        <a className="btn">Login</a>
+                        {userLogin}
                         <div className="ml-4 w-14 rounded-full">
                             <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
                         </div>
