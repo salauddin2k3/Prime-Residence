@@ -1,9 +1,12 @@
+import Estates from "./Estates";
+import Slider from "./Slider";
 
 
 const Home = () => {
     return (
         <div>
-            <h2 className="text-red-500 font-extrabold text-4xl font-poppins">Home ground</h2>
+            <Slider></Slider>
+            <Estates></Estates>
         </div>
     );
 };
