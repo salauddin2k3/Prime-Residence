@@ -13,6 +13,7 @@ import Contact from './Components/Contact';
 import Login from './Components/Login';
 import Reg from './Components/Reg';
 import AuthProvider from './Providers/AuthProvider';
+import PrivateRoute from './Components/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -30,7 +31,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/contact",
-        element: <Contact></Contact>,
+        element: <PrivateRoute><Contact></Contact></PrivateRoute>,
       },
       {
         path: "/login",

@@ -1,7 +1,21 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 
 const Navbar = () => {
+
+    const { user, logOut } = useContext(AuthContext);
+
+    const handleSignOut = () => {
+        logOut()
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
 
 
     const navLinks = <>
@@ -32,7 +46,7 @@ const Navbar = () => {
                                 {navLinks}
                             </ul>
                         </div>
-                        <a className="text-4xl font-extrabold text-[#1E1E1E]">Prime Residence</a>
+                        <NavLink to={'/'}><a className="text-4xl font-extrabold text-[#1E1E1E]">Prime Residence</a></NavLink>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -40,7 +54,16 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
+                        {/* {
+                            user
+                            ? 
+                            <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div>
+                            :
+                            {userLogin}
+
+                        } */}
                         {userLogin}
+                        <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div>
                         <div className="ml-4 w-14 rounded-full">
                             <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
                         </div>
