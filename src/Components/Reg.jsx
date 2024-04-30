@@ -1,9 +1,14 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
+import { toast } from "react-toastify";
 
 
 const Reg = () => {
+
+
+    const [regError, setRegError] = useState('');
+    const [regSuccess, setRegSuccess] = useState('');
 
     const { createUser } = useContext(AuthContext)
 
@@ -21,15 +26,37 @@ const Reg = () => {
         const email = form.get('email');
         const url = form.get('url');
         const password = form.get('password');
-        console.log(name, email, url, password)
+        console.log(name, email, url, password);
+
+        // Reset Error & Success
+        setRegError('');
+        setRegSuccess('');
+
+        if (password.length < 6) {
+            setRegError('Password must be at least 6 characters long');
+            if (!/[A-Z]/.test(password)) {
+                setRegError('Password must contain at least one uppercase letter');
+                return;
+            }
+            if (!/[a-z]/.test(password)) {
+                setRegError('Password must contain at least one lowercase letter');
+                return;
+            }
+            return;
+        }
+
 
         // Create User
         createUser(email, password)
             .then(result => {
                 console.log(result.user)
+                setRegSuccess('User Created Successfully');
+                alert('User Created Successfully');
             })
             .catch(error => {
-                console.error(error)
+                console.error(error);
+                setRegError(error.message);
+                alert(error.message);
             })
     }
 
@@ -59,6 +86,14 @@ const Reg = () => {
                             <div className="flex justify-end text-xs dark:text-gray-600">
                                 <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                             </div>
+                        </div>
+                        <div>
+                            {
+                                regError && <p className="text-red-600">{regError}</p>
+                            }
+                            {
+                                regSuccess && <p className="text-green-500">{regSuccess}</p>
+                            }
                         </div>
                         <button className="block w-full p-3 text-center rounded-sm dark:text-gray-50 dark:bg-violet-600">Sign in</button>
                     </form>

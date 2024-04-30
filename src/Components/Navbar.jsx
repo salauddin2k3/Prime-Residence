@@ -18,6 +18,7 @@ const Navbar = () => {
     }
 
 
+
     const navLinks = <>
 
         <li><NavLink to={'/'}><span className="text-base font-medium text-[#1E1E1E]">Home</span></NavLink></li>
@@ -66,7 +67,16 @@ const Navbar = () => {
                         <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div> */}
                         <div className="ml-4 w-14 rounded-full">
                             {
-                                user ? <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" /> : <div></div>
+                                user
+                                ? 
+                                <div className="relative group">
+                                    <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="Test"  />
+                                    <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity">
+                                        <p className="text-sm font-bold border border-orange-900 bg-orange-500 text-center text-white">Hover test</p>
+                                    </div>
+                                </div>
+                                :
+                                <div></div>
                             }
                         </div>
                     </div>
