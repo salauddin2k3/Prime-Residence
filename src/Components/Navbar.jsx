@@ -26,11 +26,11 @@ const Navbar = () => {
 
     </>
 
-    const userLogin = <>
+    // const userLogin = <>
 
-        <NavLink to={'/login'}><span className="btn text-base font-medium text-[#1E1E1E]">Login</span></NavLink>
+    //     <NavLink to={'/login'}><span className="btn text-base font-medium text-[#1E1E1E]">Login</span></NavLink>
 
-    </>
+    // </>
 
 
     return (
@@ -54,18 +54,20 @@ const Navbar = () => {
                         </ul>
                     </div>
                     <div className="navbar-end">
-                        {/* {
+                        {
                             user
                             ? 
                             <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div>
                             :
-                            {userLogin}
+                            <NavLink to={'/login'}><span className="btn text-base font-medium text-[#1E1E1E]">Login</span></NavLink>
 
-                        } */}
-                        {userLogin}
-                        <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div>
+                        }
+                        {/* {userLogin}
+                        <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div> */}
                         <div className="ml-4 w-14 rounded-full">
-                            <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" />
+                            {
+                                user ? <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="" /> : <div></div>
+                            }
                         </div>
                     </div>
                 </div>
