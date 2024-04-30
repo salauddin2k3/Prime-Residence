@@ -1,8 +1,11 @@
+import { useContext } from "react";
 import { NavLink } from "react-router-dom";
+import { AuthContext } from "../Providers/AuthProvider";
 
 
 const Reg = () => {
 
+    const { createUser } = useContext(AuthContext)
 
     const userLogin = <>
 
@@ -10,23 +13,45 @@ const Reg = () => {
 
     </>
 
+
+    const handleReg = e => {
+        e.preventDefault();
+        const form = new FormData(e.currentTarget);
+        const name = form.get('name');
+        const email = form.get('email');
+        const url = form.get('url');
+        const password = form.get('password');
+        console.log(name, email, url, password)
+
+        // Create User
+        createUser(email, password)
+            .then(result => {
+                console.log(result.user)
+            })
+            .catch(error => {
+                console.error(error)
+            })
+    }
+
+
+
     return (
         <div className="mt-32 flex items-center justify-center">
             <div>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">
                     <h1 className="text-2xl font-bold text-center">Registration</h1>
-                    <form noValidate="" action="" className="space-y-6">
+                    <form onSubmit={handleReg} noValidate="" className="space-y-6">
                         <div className="space-y-1 text-sm">
                             <label htmlFor="name" className="block dark:text-gray-600">Name</label>
-                            <input type="text" name="name" id="name" placeholder="name" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            <input type="text" name="name" id="name" required placeholder="name" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="email" className="block dark:text-gray-600">Email</label>
-                            <input type="text" name="email" id="name" placeholder="email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            <input type="email" name="email" id="name" placeholder="email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="email" className="block dark:text-gray-600">Photo Url</label>
-                            <input type="url" name="email" id="url" placeholder="url" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            <input type="text" name="url" id="url" placeholder="url" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                         </div>
                         <div className="space-y-1 text-sm">
                             <label htmlFor="password" className="block dark:text-gray-600">Password</label>
