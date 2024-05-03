@@ -7,17 +7,17 @@ const Navbar = () => {
 
     const { user, logOut } = useContext(AuthContext);
 
-    const handleSignOut = () => {
-        logOut()
-            .then(result => {
-                console.log(result.user)
-                alert('User Sign Out Successfully');
+    // const handleSignOut = () => {
+    //     logOut()
+    //         .then(result => {
+    //             console.log(result.user)
+    //             alert('User Sign Out Successfully');
                 
-            })
-            .catch(error => {
-                console.error(error)
-            })
-    }
+    //         })
+    //         .catch(error => {
+    //             console.error(error)
+    //         })
+    // }
 
 
 
@@ -60,7 +60,7 @@ const Navbar = () => {
                         {
                             user
                             ? 
-                            <div onClick={handleSignOut}><span className="btn text-sm lg:text-base font-medium text-[#1E1E1E]">Sign out</span></div>
+                            <div onClick={logOut}><span className="btn text-sm lg:text-base font-medium text-[#1E1E1E]">Sign out</span></div>
                             :
                             <NavLink to={'/login'}><span className="btn text-base font-medium text-[#1E1E1E]">Login</span></NavLink>
 

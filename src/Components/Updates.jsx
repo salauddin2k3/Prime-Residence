@@ -1,15 +1,21 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+// import { useLocation, useNavigate } from "react-router-dom";
 
 
 const Updates = () => {
 
-    const { user, UserUpdateProfile } = useContext(AuthContext);
+    const { user, UserUpdateProfile, setUser } = useContext(AuthContext);
+
+    console.log(user)
+
+    // const location = useLocation();
+    // const navigate = useNavigate();
 
 
     const handleChangedProfile = e => {
-        e.preventDefault();
+        // e.preventDefault();
         const form = new FormData(e.currentTarget);
         const name = form.get('name');
         const url = form.get('url');
@@ -19,13 +25,20 @@ const Updates = () => {
 
         // Update
         UserUpdateProfile(name, url)
-            .then(result => {
+            .then(() => {
+                setUser((user)=>({...user, displayName: name, photoURL: url
+                }))
+                // console.log(result.user)
+                // alert('User Saved Successfully');
 
-                console.log(result.user)
-                alert('User Saved Successfully');
-                
+                // Navigate
+                // navigate(location?.state ? location.state : '/');
+
             })
-            .catch()
+            .catch(error => {
+                console.error(error);
+                alert(error.message);
+            })
 
 
     }

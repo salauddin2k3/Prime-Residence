@@ -42,10 +42,10 @@ const AuthProvider = ({ children }) => {
 
     const UserUpdateProfile = (name, url) => {
         setLoading(true);
-        updateProfile(auth.currentUser, {
+        return updateProfile(auth.currentUser, {
             displayName: name,
             photoURL: url
-        })
+        });
     }
 
 
@@ -53,7 +53,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const unSubscribe = onAuthStateChanged(auth, currentUser => {
             console.log('user changed', currentUser);
-            console.log('user changed', currentUser.displayName);
+            console.log('user changed', currentUser?.displayName);
             setUser(currentUser);
             if (currentUser !== null) {
                 const displayName = currentUser.displayName;
@@ -62,7 +62,7 @@ const AuthProvider = ({ children }) => {
             setLoading(false)
         });
         return () => {
-            unSubscribe();
+            return unSubscribe();
         }
     }, [])
 
@@ -72,6 +72,7 @@ const AuthProvider = ({ children }) => {
 
     const authInfo = {
         user,
+        setUser,
         loading,
         createUser,
         signIn,
