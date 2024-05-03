@@ -1,6 +1,6 @@
 # Prime Residences
 
-[Live Site](https://www.primeresidences.com)
+[Live Site](https://prime-residence-e7520.web.app/)
 
 ## Features and Characteristics
 - **Diverse Property Listings**: Explore a wide range of residential properties including single-family homes, townhouses, apartments, student housing, senior living communities, and vacation rentals.
