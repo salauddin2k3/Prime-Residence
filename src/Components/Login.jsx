@@ -1,9 +1,10 @@
-import { useContext, } from "react";
+import { useContext, useState, } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
 import 'aos/dist/aos.css';
 import Aos from "aos";
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 
 Aos.init();
@@ -14,6 +15,8 @@ const Login = () => {
     const { signIn, signInWithGoogle, signInWithGithub } = useContext(AuthContext);
     const location = useLocation();
     const navigate = useNavigate();
+    const [showPassword, setShowPassword] = useState(false);
+
 
     // const [showPassword, setShowPassword] = useState(false);
 
@@ -95,11 +98,18 @@ const Login = () => {
                             <label htmlFor="email" className="block dark:text-gray-600">Email</label>
                             <input type="text" name="email" required id="email" placeholder="Your email" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
                         </div>
-                        <div className="space-y-1 text-sm">
+                        <div className="relative space-y-1 text-sm">
                             <label htmlFor="password" className="block dark:text-gray-600">Password</label>
-                            <input type="password" name="password" id="password" placeholder="Your Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
-                            {/* <button onClick={togglePasswordVisibility} className="btn">{showPassword ? "hide" : 'show'}</button> */}
-                            
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                name="password"
+                                id="password"
+                                placeholder="Your Password" className="w-full px-4 py-3 rounded-md dark:border-gray-300 dark:bg-gray-50 dark:text-gray-800 focus:dark:border-violet-600" />
+                            <span className="absolute right-3 bottom-8 text-lg text-gray-600" onClick={() => setShowPassword(!showPassword)}>
+                                {
+                                    showPassword ? <FaEyeSlash></FaEyeSlash> : <FaEye></FaEye>
+                                }
+                            </span>
                             <div className="flex justify-end text-xs dark:text-gray-600">
                                 <a rel="noopener noreferrer" href="#">Forgot Password?</a>
                             </div>
