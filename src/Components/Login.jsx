@@ -2,6 +2,11 @@ import { useContext, } from "react";
 import { NavLink, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
+import 'aos/dist/aos.css';
+import Aos from "aos";
+
+
+Aos.init();
 
 
 const Login = () => {
@@ -80,7 +85,7 @@ const Login = () => {
 
 
     return (
-        <div className="mt-32 flex items-center justify-center">
+        <div data-aos="fade-up" data-aos-duration="3000" className="mt-32 flex items-center justify-center">
             <Helmet><title>Login With Us</title></Helmet>
             <div>
                 <div className="w-full max-w-md p-8 space-y-3 rounded-xl dark:bg-gray-50 dark:text-gray-800">

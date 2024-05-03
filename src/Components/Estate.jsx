@@ -1,10 +1,14 @@
 import { Link } from "react-router-dom";
+import Aos from "aos";
+
+
+Aos.init();
 
 
 
 const Estate = (estate) => {
     return (
-        <div>
+        <div data-aos="fade-up" data-aos-duration="3000" >
             <div className='mx-2'>
                 <div className='rounded-xl mt-7 border-[#dddcdc] border p-6 h-full'>
                     <div>
