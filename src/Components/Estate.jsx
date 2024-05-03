@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 
 
 
@@ -59,7 +60,7 @@ const Estate = (estate) => {
                                     <h3 className='text-base font-bold underline text-[#131313cc] font-work italic'> <span>For </span>{estate.estate.status}</h3>
                                 </div>
                                 <div>
-                                    <button className="btn btn-outline btn-accent">View Property</button>
+                                    <Link to={`/details/${estate.estate.id}`}><button className="btn btn-outline btn-accent">View Property</button></Link>
                                 </div>
                             </div>
                         </div>

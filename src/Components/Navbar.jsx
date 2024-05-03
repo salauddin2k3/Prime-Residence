@@ -11,6 +11,8 @@ const Navbar = () => {
         logOut()
             .then(result => {
                 console.log(result.user)
+                alert('User Sign Out Successfully');
+                
             })
             .catch(error => {
                 console.error(error)
@@ -69,11 +71,11 @@ const Navbar = () => {
                             {
                                 user
                                 ? 
-                                <div className="relative group">
-                                    <img className="rounded-full" src="https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg" alt="Test"  />
-                                    <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity">
-                                        <p className="text-sm font-bold border border-orange-900 bg-orange-500 text-center text-white">Hover test</p>
-                                    </div>
+                                <div className="tooltip" data-tip={user?.displayName || "Unknown"}>
+                                    <img className="rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"}  />
+                                    {/* <div className="absolute inset-0 opacity-0 hover:opacity-100 transition-opacity">
+                                        <p className="text-sm font-bold border w-fit border-orange-900 bg-orange-500 text-center text-white">{user?.displayName || "Unknown"}</p>
+                                    </div> */}
                                 </div>
                                 :
                                 <div></div>

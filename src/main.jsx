@@ -13,6 +13,8 @@ import Contact from './Components/Contact';
 import Login from './Components/Login';
 import Reg from './Components/Reg';
 import AuthProvider from './Providers/AuthProvider';
+import Details from './Components/Details';
+import { HelmetProvider } from 'react-helmet-async';
 import PrivateRoute from './Components/PrivateRoute';
 
 const router = createBrowserRouter([
@@ -27,7 +29,7 @@ const router = createBrowserRouter([
       },
       {
         path: "/update",
-        element: <Updates></Updates>,
+        element: <PrivateRoute><Updates></Updates></PrivateRoute>,
       },
       {
         path: "/contact",
@@ -40,7 +42,12 @@ const router = createBrowserRouter([
       {
         path: "/reg",
         element: <Reg></Reg>
-      }
+      },
+      {
+        path: '/details/:id',
+        element: <PrivateRoute><Details></Details></PrivateRoute>,
+        loader: () => fetch('/prime-residence.json')
+      },
     ]
   },
 ]);
@@ -48,7 +55,7 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <AuthProvider>
-      <RouterProvider router={router} />
+      <HelmetProvider><RouterProvider router={router} /></HelmetProvider>
     </AuthProvider>
   </React.StrictMode>,
 )
