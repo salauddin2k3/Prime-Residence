@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const Estate = (estate) => {
     return (
         <div>
-            <div className=''>
+            <div className='mx-2'>
                 <div className='rounded-xl mt-7 border-[#dddcdc] border p-6 h-full'>
                     <div>
                         <div className='bg-[#F3F3F3] py-7 px-7 rounded-xl'>
@@ -29,7 +29,7 @@ const Estate = (estate) => {
                         <div className=''>
                             <div className=' mt-6 border-b-2 border-dashed'></div>
                             <div className='mt-6 flex justify-between items-center'>
-                                <div className="flex gap-4">
+                                <div className="flex flex-col lg:flex-row gap-4">
                                     {/* <h3 className='text-base font-medium text-[#131313cc] font-work'>Facilities:{estate.estate.}</h3> */}
                                     {
                                         estate.estate.facilities.map((tags, idx) => <p className='text-base font-medium text-[#23BE0A] font-work bg-[#23be0a0d] px-4 py-1 rounded-full w-fit' key={idx}>{tags}</p>)

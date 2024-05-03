@@ -49,7 +49,7 @@ const Navbar = () => {
                                 {navLinks}
                             </ul>
                         </div>
-                        <NavLink to={'/'}><a className="text-4xl font-extrabold text-[#1E1E1E]">Prime Residence</a></NavLink>
+                        <NavLink to={'/'}><a className="text-lg md:text-2xl lg:text-4xl font-extrabold text-[#1E1E1E]">Prime Residence</a></NavLink>
                     </div>
                     <div className="navbar-center hidden lg:flex">
                         <ul className="menu menu-horizontal px-1">
@@ -60,7 +60,7 @@ const Navbar = () => {
                         {
                             user
                             ? 
-                            <div onClick={handleSignOut}><span className="btn text-base font-medium text-[#1E1E1E]">Sign out</span></div>
+                            <div onClick={handleSignOut}><span className="btn text-sm lg:text-base font-medium text-[#1E1E1E]">Sign out</span></div>
                             :
                             <NavLink to={'/login'}><span className="btn text-base font-medium text-[#1E1E1E]">Login</span></NavLink>
 

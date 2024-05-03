@@ -15,11 +15,11 @@ const Details = () => {
         <div>
             <Helmet><title>Residence Details</title></Helmet>
             <div className="mt-16 mx-2 flex flex-col items-center gap-11">
-                <div className="p-16 bg-[#1313130d] rounded-xl flex justify-center">
+                <div className="p-4 lg:p-16 bg-[#1313130d] rounded-xl flex justify-center">
                     <img className="w-fit rounded-xl" src={detail.image} alt="" />
                 </div>
-                <div className="p-3 flex gap-4">
-                    <div className="w-2/3 border-2 border-gray-400 rounded-lg p-9">
+                <div className="p-3 flex flex-col lg:flex-row gap-4">
+                    <div className="lg:w-2/3 border-2 border-gray-400 rounded-lg p-9">
                         <h1 className="text-3xl lg:text-4xl font-bold text-[#131313] font-playfire">{detail.estate_title} <span className="text-base italic">({detail.segment_name})</span></h1>
                         <p className="mt-4 text-xl font-medium text-[#131313cc] font-work">Description : {detail.description} </p>
                         <div className="mt-5 flex flex-col lg:flex-row lg:items-center gap-4">
@@ -29,7 +29,7 @@ const Details = () => {
                             }
                         </div>
                     </div>
-                    <div className="w-1/3 border-2 border-gray-400 rounded-lg p-9">
+                    <div className="lg:w-1/3 border-2 border-gray-400 rounded-lg p-9">
                         <p className="mt-4 text-lg font-bold text-[#131313cc] font-work">Location : {detail.location} </p>
                         <p className="mt-4 text-lg font-bold text-[#131313cc] font-work">Price : {detail.price} </p>
                         <p className="mt-4 text-lg font-bold text-[#131313cc] font-work">Area : {detail.area} </p>

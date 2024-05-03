@@ -35,13 +35,13 @@ const Updates = () => {
         <div className="mt-20">
             <Helmet><title>Update Profile</title></Helmet>
             <div className="bg-[#fdf9f8] rounded-2xl">
-                <div className="flex p-28 gap-16">
+                <div className="flex flex-col lg:flex-row p-4 lg:p-28 gap-16">
                     <div className="border-2 p-7 rounded-2xl border-[#f7614d]">
-                        <img className="w-72 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} alt="" />
+                        <img className="w-fit lg:w-72 rounded-full" src={user?.photoURL || "https://daisyui.com/images/stock/photo-1534528741775-53994a69daeb.jpg"} alt="" />
                         <div><h2 className="text-3xl text-center mt-3 font-bold"><span>{user?.displayName || "Null"}</span></h2></div>
                         <div><h2 className="text-lg text-center mt-2 font-bold"><span>{user?.email || "Null"}</span></h2></div>
                     </div>
-                    <div className="border-2 p-7 rounded-2xl border-[#f7614d] w-2/3 flex flex-col items-center">
+                    <div className="border-2 p-7 rounded-2xl border-[#f7614d] w-full lg:w-2/3 flex flex-col items-center">
                         <h1 className="text-3xl font-bold text-center">Update Profile</h1>
                         <div className=" mt-7 w-2/3">
                             <form onSubmit={handleChangedProfile} className="text-center" action="">
