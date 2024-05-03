@@ -1,7 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../Providers/AuthProvider";
 import { Helmet } from "react-helmet-async";
-// import { useLocation, useNavigate } from "react-router-dom";
+// import {useNavigate } from "react-router-dom";
 
 
 const Updates = () => {
@@ -26,13 +26,14 @@ const Updates = () => {
         // Update
         UserUpdateProfile(name, url)
             .then(() => {
-                setUser((user)=>({...user, displayName: name, photoURL: url
+                setUser((user) => ({
+                    ...user, displayName: name, photoURL: url
                 }))
                 // console.log(result.user)
                 // alert('User Saved Successfully');
 
                 // Navigate
-                // navigate(location?.state ? location.state : '/');
+                // navigate(user ? '/login' : '/update');
 
             })
             .catch(error => {

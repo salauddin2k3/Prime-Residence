@@ -64,11 +64,11 @@ const AuthProvider = ({ children }) => {
         return () => {
             return unSubscribe();
         }
-    }, [])
-
-    useEffect(() => {
-        setLoading(false)
     }, [user])
+
+    // useEffect(() => {
+    //     setLoading(false)
+    // }, [user])
 
     const authInfo = {
         user,
