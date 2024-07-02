@@ -13,3 +13,25 @@
 - **AOS Package**: [aos](https://www.npmjs.com/package/aos)
 - **Animate.css**: [animate.css](https://www.npmjs.com/package/animate.css)
 - **Swiper slider**: [swiper](https://www.npmjs.com/package/swiper)
+
+## Installation
+If you want to clone the project and run it locally, follow these steps:
+
+1. **Clone the repository:**
+    ```bash
+    git clone https://github.com/salauddin2k3/Prime-Residence.git
+    cd prime-residence
+    ```
+
+2. **Install dependencies:**
+    ```bash
+    npm install
+    ```
+
+3. **Start the development server:**
+    ```bash
+    npm start
+    ```
+
+4. **Open the application:**
+    - Once the development server is running, open your browser and navigate to `http://localhost:3000` to view the application.
